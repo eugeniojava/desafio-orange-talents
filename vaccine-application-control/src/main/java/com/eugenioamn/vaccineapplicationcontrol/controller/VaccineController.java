@@ -1,7 +1,6 @@
 package com.eugenioamn.vaccineapplicationcontrol.controller;
 
-import com.eugenioamn.vaccineapplicationcontrol.dto.VaccineDto;
-import com.eugenioamn.vaccineapplicationcontrol.form.VaccineForm;
+import com.eugenioamn.vaccineapplicationcontrol.controller.form.VaccineForm;
 import com.eugenioamn.vaccineapplicationcontrol.service.VaccineService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -22,7 +21,7 @@ public class VaccineController {
     }
 
     @PostMapping
-    public ResponseEntity<VaccineDto> create(
+    public ResponseEntity<?> create(
             @Valid @RequestBody VaccineForm vaccineForm) {
         return vaccineService.create(vaccineForm);
     }

@@ -9,17 +9,17 @@ public class Vaccine {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @Column(name = "vaccine_id")
     private Long id;
 
-    @Column(name = "name")
+    @Column(name = "vaccine_name")
     private String name;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id")
     private User user;
 
-    @Column(name = "vaccination_date")
+    @Column(name = "vaccine_vaccination_date")
     private LocalDate vaccinationDate;
 
     public Vaccine(String name, User user, LocalDate vaccinationDate) {

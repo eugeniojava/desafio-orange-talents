@@ -1,4 +1,4 @@
-package com.eugenioamn.vaccineapplicationcontrol.dto;
+package com.eugenioamn.vaccineapplicationcontrol.controller.dto;
 
 import com.eugenioamn.vaccineapplicationcontrol.model.Vaccine;
 

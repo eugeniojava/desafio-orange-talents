@@ -16,27 +16,27 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @Column(name = "user_id")
     private Long id;
 
     @NotBlank
-    @Column(name = "name")
+    @Column(name = "user_name")
     private String name;
 
     @NotBlank
     @Email
-    @Column(name = "email", unique = true)
+    @Column(name = "user_email", unique = true)
     private String email;
 
     @NotBlank
     @CPF
-    @Column(name = "cpf", unique = true)
+    @Column(name = "user_cpf", unique = true)
     private String cpf;
 
     @NotNull
     @Past
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
-    @Column(name = "date_of_birth")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "MM/dd/yyyy")
+    @Column(name = "user_date_of_birth")
     private LocalDate dateOfBirth;
 
     public Long getId() {

@@ -1,7 +1,8 @@
 package com.eugenioamn.vaccineapplicationcontrol.service;
 
-import com.eugenioamn.vaccineapplicationcontrol.dto.VaccineDto;
-import com.eugenioamn.vaccineapplicationcontrol.form.VaccineForm;
+import com.eugenioamn.vaccineapplicationcontrol.controller.dto.VaccineDto;
+import com.eugenioamn.vaccineapplicationcontrol.controller.form.VaccineForm;
+import com.eugenioamn.vaccineapplicationcontrol.controller.validation.ValidationError;
 import com.eugenioamn.vaccineapplicationcontrol.model.User;
 import com.eugenioamn.vaccineapplicationcontrol.model.Vaccine;
 import com.eugenioamn.vaccineapplicationcontrol.repository.UserRepository;
@@ -22,7 +23,7 @@ public class VaccineService {
         this.userRepository = userRepository;
     }
 
-    public ResponseEntity<VaccineDto> create(VaccineForm vaccineForm) {
+    public ResponseEntity<?> create(VaccineForm vaccineForm) {
         User user = userRepository.findByEmail(
                 vaccineForm.getEmail()).orElse(null);
 
@@ -33,6 +34,9 @@ public class VaccineService {
 
             return new ResponseEntity<>(vaccineDto, HttpStatus.CREATED);
         }
-        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        ValidationError validationError = new ValidationError(
+                "email", "email not registered");
+
+        return new ResponseEntity<>(validationError, HttpStatus.BAD_REQUEST);
     }
 }

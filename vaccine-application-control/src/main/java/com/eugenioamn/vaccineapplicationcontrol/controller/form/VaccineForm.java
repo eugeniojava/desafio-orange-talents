@@ -1,4 +1,4 @@
-package com.eugenioamn.vaccineapplicationcontrol.form;
+package com.eugenioamn.vaccineapplicationcontrol.controller.form;
 
 import com.eugenioamn.vaccineapplicationcontrol.model.User;
 import com.eugenioamn.vaccineapplicationcontrol.model.Vaccine;
@@ -19,7 +19,7 @@ public class VaccineForm {
     private String email;
 
     @NotNull
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "MM/dd/yyyy")
     private LocalDate vaccinationDate;
 
     public String getName() {
